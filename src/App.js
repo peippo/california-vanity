@@ -13,7 +13,7 @@ function App() {
 			<Canvas>
 				<Suspense fallback={null}>
 					<ambientLight intensity={0.5} />
-					<spotLight position={[20, 150, 50]} intensity={1.25} />
+					<spotLight position={[20, 350, 250]} intensity={0.75} />
 					{error ? (
 						<Plate identifier={"ERROR!"} />
 					) : (
