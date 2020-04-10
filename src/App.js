@@ -1,25 +1,31 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
-import { getRandom } from "./services/applications";
+import useRandom from "./hooks/useRandom";
 
 import Plate from "./components/Plate/Plate";
 
 function App() {
-	const [application, setApplication] = useState(null);
-	// const application = { plate: "TESTING" };
-
-	useEffect(() => {
-		getRandom().then(data => setApplication(data));
-	}, []);
+	const { fetchRandom, isFetching, application, error } = useRandom();
 
 	return (
-		<Canvas>
-			<Suspense fallback={null}>
-				<ambientLight intensity={0.5} />
-				<spotLight position={[20, 150, 50]} intensity={1.25} />
-				{application && <Plate identifier={application.plate} />}
-			</Suspense>
-		</Canvas>
+		<>
+			<button onClick={fetchRandom}>Fetch a plate</button>
+			<Canvas>
+				<Suspense fallback={null}>
+					<ambientLight intensity={0.5} />
+					<spotLight position={[20, 150, 50]} intensity={1.25} />
+					{error ? (
+						<Plate identifier={"ERROR!"} />
+					) : (
+						<Plate
+							identifier={application?.plate}
+							color={application?.color}
+							isFetching={isFetching}
+						/>
+					)}
+				</Suspense>
+			</Canvas>
+		</>
 	);
 }
 

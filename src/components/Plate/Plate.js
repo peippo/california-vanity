@@ -1,30 +1,38 @@
 import React, { useRef } from "react";
+import * as THREE from "three/src/Three";
 import { useFrame } from "react-three-fiber";
+import { useSpring, animated } from "react-spring/three";
+import { randomDegree, randomizePosNeg } from "../../utils/numbers";
 
 import PlateText from "./PlateText";
 import PlateBack from "./PlateBack";
 
-const Plate = ({ identifier }) => {
+const Plate = ({ identifier, color, isFetching }) => {
 	const group = useRef();
 
-	const colors = [
-		{ back: "rgb(18, 74, 173)", text: "rgb(213, 160, 1)" },
-		{ back: "rgb(216, 216, 208)", text: "rgb(0, 0, 60)" },
-		{ back: "rgb(18, 20, 21)", text: "rgb(246, 159, 48)" }
-	];
-	const color = colors[Math.floor(Math.random() * colors.length)];
+	const { ...props } = useSpring({
+		scale: isFetching ? [0.75, 0.75, 0.75] : [1, 1, 1],
+		rotation: isFetching
+			? [
+					THREE.Math.degToRad(randomizePosNeg(180)),
+					0,
+					THREE.Math.degToRad(randomDegree(15)),
+			  ]
+			: [0, 0, 0],
+		config: { mass: 10, tension: 1000, friction: 300, precision: 0.00001 },
+	});
 
-	useFrame(
-		({ clock }) =>
-			(group.current.rotation.x = group.current.rotation.y = group.current.rotation.z =
-				Math.cos(clock.getElapsedTime()) * 0.15)
-	);
+	useFrame(({ clock }) => {
+		group.current.rotation.y = Math.cos(clock.getElapsedTime()) * 0.15;
+	});
 
 	return (
-		<group ref={group}>
-			<PlateText identifier={identifier} color={color.text} />
-			<PlateBack color={color.back} />
-		</group>
+		<animated.group ref={group} {...props}>
+			{!isFetching && (
+				<PlateText identifier={identifier} color={color?.text} />
+			)}
+			<PlateBack color={color?.back} />
+		</animated.group>
 	);
 };
 
