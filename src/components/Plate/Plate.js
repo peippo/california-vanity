@@ -18,7 +18,7 @@ const Plate = ({ identifier, color, isFetching }) => {
 					0,
 					THREE.Math.degToRad(randomDegree(15)),
 			  ]
-			: [0, 0, 0],
+			: [THREE.Math.degToRad(randomDegree(20)), 0, 0],
 		config: { mass: 10, tension: 1000, friction: 300, precision: 0.00001 },
 	});
 

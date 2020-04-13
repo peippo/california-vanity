@@ -1,31 +1,20 @@
-import React, { Suspense } from "react";
-import { Canvas } from "react-three-fiber";
-import useRandom from "./hooks/useRandom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import useCount from "./hooks/useCount";
 
-import Plate from "./components/Plate/Plate";
+import Frontpage from "./components/Frontpage";
 
 function App() {
-	const { fetchRandom, isFetching, application, error } = useRandom();
+	const { plateCount, isFetching, error } = useCount();
 
 	return (
-		<>
-			<button onClick={fetchRandom}>Fetch a plate</button>
-			<Canvas>
-				<Suspense fallback={null}>
-					<ambientLight intensity={0.5} />
-					<spotLight position={[20, 350, 250]} intensity={0.75} />
-					{error ? (
-						<Plate identifier={"ERROR!"} />
-					) : (
-						<Plate
-							identifier={application?.plate}
-							color={application?.color}
-							isFetching={isFetching}
-						/>
-					)}
-				</Suspense>
-			</Canvas>
-		</>
+		<Router>
+			<Switch>
+				<Route exact path={["/", "/plate", "/plate/:id"]}>
+					{!isFetching && <Frontpage plateCount={plateCount} />}
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 

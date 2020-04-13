@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { useLoader, useUpdate } from "react-three-fiber";
 
 const PlateText = ({ identifier, color }) => {
-	const font = useLoader(THREE.FontLoader, "plate-font.json");
+	const font = useLoader(THREE.FontLoader, "../plate-font.json");
 	const config = useMemo(
 		() => ({
 			font,
@@ -14,13 +14,13 @@ const PlateText = ({ identifier, color }) => {
 			bevelThickness: 0.1,
 			bevelSize: 0.2,
 			bevelOffset: 0,
-			bevelSegments: 1
+			bevelSegments: 1,
 		}),
 		[font]
 	);
 
 	const ref = useUpdate(
-		self => {
+		(self) => {
 			const size = new THREE.Vector3();
 			self.geometry.computeBoundingBox();
 			self.geometry.boundingBox.getSize(size);
