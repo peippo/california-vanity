@@ -1,5 +1,9 @@
+export const randomMax = (num) => {
+	return Math.floor(Math.random() * num);
+};
+
 export const randomDegree = (num) => {
-	return randomizePosNeg(Math.floor(Math.random() * num));
+	return randomizePosNeg(randomMax(num));
 };
 
 export const randomizePosNeg = (num) => {
