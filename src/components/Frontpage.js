@@ -1,6 +1,6 @@
 import React, { Suspense, useState, useEffect } from "react";
-import { Canvas } from "react-three-fiber";
 import * as THREE from "three/src/Three";
+import { Canvas, Dom } from "react-three-fiber";
 import { useHistory, useParams } from "react-router-dom";
 import usePlate from "../hooks/usePlate";
 import { randomMax } from "../utils/numbers";
@@ -9,6 +9,7 @@ import Plate from "./Plate/Plate";
 import Sun from "./Sun";
 import PalmTree from "./PalmTree";
 import Road from "./Road";
+import FetchButton from "./FetchButton";
 import Logo from "./Logo";
 
 const Frontpage = ({ plateCount }) => {
@@ -27,7 +28,7 @@ const Frontpage = ({ plateCount }) => {
 	}, [plateId, history]);
 
 	return (
-		<Canvas>
+		<Canvas
 			onCreated={({ gl }) => {
 				gl.shadowMap.enabled = true;
 				gl.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -35,20 +36,24 @@ const Frontpage = ({ plateCount }) => {
 		>
 			<Suspense fallback={null}>
 				<ambientLight intensity={0.5} />
-				<spotLight position={[20, 350, 250]} intensity={0.75} />
-				<Plate
 				<spotLight
 					position={[0, 2, 10]}
 					intensity={0.6}
 					penumbra={1}
 					castShadow
+				/>
+				<Plate
 					identifier={application?.plate}
 					color={application?.color}
 					isFetching={isFetching}
 				/>
 				<Logo />
+				<Dom position={[0, -2, 0]} center={true}>
+					<FetchButton
+						onClick={handleClick}
 						isFetching={isFetching}
 					/>
+				</Dom>
 				<Sun />
 				<Road />
 				<PalmTree

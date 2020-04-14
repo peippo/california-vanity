@@ -4,10 +4,10 @@ import { ReactComponent as LogoSVG } from "./Logo.svg";
 
 const Logo = () => {
 	const scene = useThree();
-	const pos = scene.size.width > 700 ? [-2.5, 3, 0] : [-1.5, 3, 0];
+	const pos = scene.size.width > 900 ? [-1.5, 2.25, 0] : [0, 2.25, 0];
 
 	return (
-		<Dom position={pos}>
+		<Dom position={pos} center={true}>
 			<LogoSVG className="logo" />
 		</Dom>
 	);

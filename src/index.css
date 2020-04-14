@@ -23,12 +23,43 @@ code {
 }
 
 .logo {
-	width: 450px;
+	width: 70vw;
 	height: auto;
 }
 
-@media (max-width: 700px) {
+.fetch-button {
+	font-family: "Pacifico", cursive;
+	background: linear-gradient(to top, #ffc520, #f7ddc5 90%, #f5e7da);
+	box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.5);
+	border: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.75);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+	color: #371516;
+	font-size: 18px;
+	padding: 5px 10px;
+	border-radius: 10px;
+	transition: all, 0.15s;
+	min-width: 250px;
+}
+
+.fetch-button:hover {
+	cursor: pointer;
+	transform: translateY(2px);
+	box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.8);
+}
+
+.fetch-button[disabled]:hover {
+	cursor: wait;
+}
+
+@media (min-width: 700px) {
 	.logo {
-		width: 70vw;
+		width: 450px;
+	}
+
+	.fetch-button {
+		font-size: 20px;
+		padding: 10px 20px;
+		min-width: 280px;
 	}
 }
