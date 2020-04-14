@@ -1,10 +1,35 @@
-import React from "react";
+import * as THREE from "three";
+import React, { useMemo } from "react";
 
-const PlateBack = ({ color }) => {
+const PlateBack = ({ background, textureName }) => {
+	const url1 = `../texture-plate-blue-yellow.png`;
+	const url2 = `../texture-plate-white-black.png`;
+	const url3 = `../texture-plate-black-yellow.png`;
+
+	const [blueYellow, whiteBlack, blackYellow] = useMemo(() => {
+		const loader = new THREE.TextureLoader();
+		return [loader.load(url1), loader.load(url2), loader.load(url3)];
+	}, [url1, url2, url3]);
+
+	let texture = null;
+	switch (textureName) {
+		case "blue-yellow":
+			texture = blueYellow;
+			break;
+		case "white-black":
+			texture = whiteBlack;
+			break;
+		case "black-yellow":
+			texture = blackYellow;
+			break;
+		default:
+			break;
+	}
+
 	const material = (
 		<meshPhongMaterial
 			attach="material"
-			color={color}
+			color={background}
 			shininess={5}
 			specular={"rgb(150, 150, 150)"}
 		/>
@@ -28,6 +53,16 @@ const PlateBack = ({ color }) => {
 	return (
 		<group>
 			{/* Front */}
+			{texture && (
+				<mesh scale={[1, 1, 1]} castShadow position={[0, 0, -0.1]}>
+					<boxBufferGeometry attach="geometry" args={[6, 3, 0.05]} />
+					<meshBasicMaterial
+						attach="material"
+						map={texture}
+						transparent={true}
+					/>
+				</mesh>
+			)}
 			<mesh scale={[1, 1, 1]} castShadow position={[0, 0, -0.1]}>
 				<boxBufferGeometry attach="geometry" args={[6, 3, 0.05]} />
 				{material}

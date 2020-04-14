@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import * as THREE from "three/src/Three";
 import { Canvas, Dom } from "react-three-fiber";
 import { useHistory, useParams } from "react-router-dom";

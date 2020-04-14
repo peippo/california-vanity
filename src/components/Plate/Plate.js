@@ -31,7 +31,7 @@ const Plate = ({ identifier, color, isFetching }) => {
 			{!isFetching && (
 				<PlateText identifier={identifier} color={color?.text} />
 			)}
-			<PlateBack color={color?.back} />
+			<PlateBack background={color?.back} textureName={color?.texture} />
 		</animated.group>
 	);
 };

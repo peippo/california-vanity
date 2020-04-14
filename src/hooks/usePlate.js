@@ -9,9 +9,21 @@ const usePlate = (id) => {
 
 	const fetchPlate = useCallback(() => {
 		const colors = [
-			{ back: "rgb(18, 74, 173)", text: "rgb(213, 160, 1)" },
-			{ back: "rgb(216, 216, 208)", text: "rgb(0, 0, 60)" },
-			{ back: "rgb(18, 20, 21)", text: "rgb(246, 159, 48)" },
+			{
+				back: "rgb(18, 74, 173)",
+				text: "rgb(213, 160, 1)",
+				texture: "blue-yellow",
+			},
+			{
+				back: "rgb(216, 216, 208)",
+				text: "rgb(0, 0, 60)",
+				texture: "white-black",
+			},
+			{
+				back: "rgb(18, 20, 21)",
+				text: "rgb(246, 159, 48)",
+				texture: "black-yellow",
+			},
 		];
 
 		setIsFetching(true);
