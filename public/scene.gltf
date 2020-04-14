@@ -1,0 +1,338 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 9988,
+      "max": [
+        265.622314453125,
+        171.0333251953125,
+        721.78179931640625
+      ],
+      "min": [
+        -324.31219482421875,
+        -378.40728759765625,
+        256.048828125
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 119856,
+      "componentType": 5126,
+      "count": 9988,
+      "max": [
+        0.99854063987731934,
+        0.99977326393127441,
+        0.99990266561508179
+      ],
+      "min": [
+        -0.99978864192962646,
+        -0.99993038177490234,
+        -0.97822612524032593
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 9988,
+      "max": [
+        0.98114597797393799,
+        1.0007929801940918
+      ],
+      "min": [
+        0.5320659875869751,
+        0.029761999845504761
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 35286,
+      "max": [
+        9987
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 239712,
+      "componentType": 5126,
+      "count": 9999,
+      "max": [
+        357.7449951171875,
+        153.24967956542969,
+        626.3148193359375
+      ],
+      "min": [
+        -239.9168701171875,
+        -488.8177490234375,
+        376.860595703125
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 359700,
+      "componentType": 5126,
+      "count": 9999,
+      "max": [
+        0.99993813037872314,
+        0.99992561340332031,
+        0.99996423721313477
+      ],
+      "min": [
+        -0.98466426134109497,
+        -0.99851363897323608,
+        -0.97656577825546265
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 79904,
+      "componentType": 5126,
+      "count": 9999,
+      "max": [
+        0.98114597797393799,
+        1.0007929801940918
+      ],
+      "min": [
+        0.25,
+        0.029761999845504761
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 141144,
+      "componentType": 5125,
+      "count": 35391,
+      "max": [
+        9998
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 479688,
+      "componentType": 5126,
+      "count": 5600,
+      "max": [
+        287.16934204101562,
+        63.366043090820312,
+        605.08416748046875
+      ],
+      "min": [
+        -39.039093017578125,
+        -372.75015258789062,
+        -0.5
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 546888,
+      "componentType": 5126,
+      "count": 5600,
+      "max": [
+        0.99769002199172974,
+        0.99950861930847168,
+        0.99915778636932373
+      ],
+      "min": [
+        -0.99717259407043457,
+        -0.99755364656448364,
+        -0.99679726362228394
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 159896,
+      "componentType": 5126,
+      "count": 5600,
+      "max": [
+        0.98114597797393799,
+        1.0007929801940918
+      ],
+      "min": [
+        0.043104998767375946,
+        0.015294999815523624
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 282708,
+      "componentType": 5125,
+      "count": 13398,
+      "max": [
+        5599
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Guad (https://sketchfab.com/GuadalupeD)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/palm-tree-c520a0429a024f18a69342ce79acd5d5",
+      "title": "Palm Tree"
+    },
+    "generator": "Sketchfab-7.52.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 336300,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 204696,
+      "byteOffset": 336300,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 614088,
+      "byteOffset": 540996,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1155084,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "initialShadingGroup",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3,
+        4,
+        5
+      ],
+      "name": "Palm_Tree.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": ""
+    },
+    {
+      "mesh": 1,
+      "name": ""
+    },
+    {
+      "mesh": 2,
+      "name": ""
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
+

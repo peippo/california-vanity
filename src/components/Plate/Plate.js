@@ -11,7 +11,7 @@ const Plate = ({ identifier, color, isFetching }) => {
 	const group = useRef();
 
 	const { ...props } = useSpring({
-		scale: isFetching ? [0.75, 0.75, 0.75] : [1, 1, 1],
+		scale: isFetching ? [0.25, 0.25, 0.25] : [0.35, 0.35, 0.35],
 		rotation: isFetching
 			? [
 					THREE.Math.degToRad(randomizePosNeg(180)),
@@ -27,7 +27,7 @@ const Plate = ({ identifier, color, isFetching }) => {
 	});
 
 	return (
-		<animated.group ref={group} {...props}>
+		<animated.group ref={group} position={[0, 0, 3]} {...props}>
 			{!isFetching && (
 				<PlateText identifier={identifier} color={color?.text} />
 			)}
