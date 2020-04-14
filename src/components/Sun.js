@@ -27,13 +27,13 @@ const Sun = () => {
 		<meshPhongMaterial
 			attach="material"
 			color={color}
-			shininess={3}
-			specular={"rgb(150, 150, 150)"}
+			shininess={10}
+			specular={"rgb(40, 40, 40)"}
 		/>
 	);
 
 	return (
-		<group ref={group} scale={[2.4, 2.4, 2.4]} position={[0, -1, -5]}>
+		<group ref={group} scale={[3.2, 3.2, 3.2]} position={[0, -1, -8]}>
 			<mesh
 				position={[0, 0, -3]}
 				scale={[3, 1, 3]}

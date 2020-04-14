@@ -28,34 +28,46 @@ const PlateBack = ({ color }) => {
 	return (
 		<group>
 			{/* Front */}
-			<mesh scale={[1, 1, 1]} position={[0, 0, -0.1]}>
+			<mesh scale={[1, 1, 1]} castShadow position={[0, 0, -0.1]}>
 				<boxBufferGeometry attach="geometry" args={[6, 3, 0.05]} />
 				{material}
 			</mesh>
 
 			{/* Front / Sides */}
-			<mesh scale={[1, 1, 1]} position={[0, -1.5, sideZPosition]}>
+			<mesh
+				scale={[1, 1, 1]}
+				castShadow
+				position={[0, -1.5, sideZPosition]}
+			>
 				<boxBufferGeometry
 					attach="geometry"
 					args={[6, 0.25, sideHeight]}
 				/>
 				{material}
 			</mesh>
-			<mesh scale={[1, 1, 1]} position={[0, 1.5, sideZPosition]}>
+			<mesh
+				scale={[1, 1, 1]}
+				castShadow
+				position={[0, 1.5, sideZPosition]}
+			>
 				<boxBufferGeometry
 					attach="geometry"
 					args={[6, 0.25, sideHeight]}
 				/>
 				{material}
 			</mesh>
-			<mesh scale={[1, 1, 1]} position={[-3, 0, sideZPosition]}>
+			<mesh
+				scale={[1, 1, 1]}
+				castShadow
+				position={[-3, 0, sideZPosition]}
+			>
 				<boxBufferGeometry
 					attach="geometry"
 					args={[0.25, 3, sideHeight]}
 				/>
 				{material}
 			</mesh>
-			<mesh scale={[1, 1, 1]} position={[3, 0, sideZPosition]}>
+			<mesh scale={[1, 1, 1]} castShadow position={[3, 0, sideZPosition]}>
 				<boxBufferGeometry
 					attach="geometry"
 					args={[0.25, 3, sideHeight]}
@@ -110,7 +122,7 @@ const PlateBack = ({ color }) => {
 			</mesh>
 
 			{/* Back */}
-			<mesh scale={[1, 1, 1]} position={[0, 0, backZPosition]}>
+			<mesh castShadow scale={[1, 1, 1]} position={[0, 0, backZPosition]}>
 				<boxBufferGeometry
 					attach="geometry"
 					args={[6, 3, backHeight]}
