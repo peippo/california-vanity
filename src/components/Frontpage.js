@@ -7,6 +7,7 @@ import { randomMax } from "../utils/numbers";
 import Plate from "./Plate/Plate";
 import Sun from "./Sun";
 import PalmTree from "./PalmTree";
+import Logo from "./Logo";
 
 const Frontpage = ({ plateCount }) => {
 	const history = useHistory();
@@ -33,6 +34,7 @@ const Frontpage = ({ plateCount }) => {
 					color={application?.color}
 					isFetching={isFetching}
 				/>
+				<Logo />
 						isFetching={isFetching}
 					/>
 				<Sun />
