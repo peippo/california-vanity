@@ -1,3 +1,12 @@
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 html,
 body,
 #root {
@@ -15,6 +24,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: linear-gradient(180deg, #f36c70 0%, #f6ab67 100%);
+}
+
+:root {
+	--form-rotation: 2deg;
 }
 
 code {
@@ -50,6 +63,176 @@ code {
 
 .fetch-button[disabled]:hover {
 	cursor: wait;
+}
+
+.form {
+	position: fixed;
+	background: #eaeaea;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	width: 750px;
+	height: 330px;
+	max-height: 330px;
+	font-size: 15px;
+	transition: all, 0.5s;
+	left: 50%;
+	bottom: 0;
+	border-radius: 3px;
+	transform: rotate(var(--form-rotation)) translateX(-50%);
+	background: linear-gradient(
+		to top,
+		#b9b9b9 10%,
+		#eaeaea,
+		#fbfbfb 90%,
+		white
+	);
+}
+
+.form,
+.form:before,
+.form:after {
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+	border: 1px solid #bbb;
+}
+
+.form:before,
+.form:after {
+	content: "";
+	position: absolute;
+	height: 95%;
+	width: 99%;
+}
+
+.form:before {
+	right: 15px;
+	top: 0;
+	transform: rotate(-1deg);
+	z-index: -1;
+	background: url("/texture-form-bg.png"),
+		linear-gradient(to top, #b9b9b9 10%, #eaeaea, #fbfbfb 90%, white);
+	background-size: cover;
+}
+
+.form:after {
+	top: -5px;
+	right: -5px;
+	transform: rotate(2deg);
+	z-index: -2;
+	background: linear-gradient(
+		to top,
+		#b9b9b9 10%,
+		#eaeaea,
+		#fbfbfb 90%,
+		white
+	);
+}
+
+.form__hidden {
+	transform: rotate(var(--form-rotation)) translateX(-50%) translateY(330px);
+	opacity: 0;
+}
+
+.form__visible {
+	transform: rotate(var(--form-rotation)) translateX(-50%) translateY(100px);
+	opacity: 1;
+}
+
+.form__logo {
+	width: 260px;
+}
+
+.form__mainheading {
+	font-size: 16px;
+	padding-left: 20px;
+	margin-top: 25px;
+}
+
+.form__header {
+	display: flex;
+}
+
+.form__heading {
+	background: #eee;
+	border-top: 1px solid black;
+	border-bottom: 2px solid black;
+	text-transform: uppercase;
+	font-size: 13px;
+	padding: 3px 2px;
+	margin-bottom: 0;
+}
+
+.form__subheading {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	opacity: 0.8;
+	font-size: 12px;
+}
+
+.form__required {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.form__content {
+	display: flex;
+}
+
+.form__content p {
+	margin-top: 0.5rem;
+}
+
+.form__meaning {
+	font-family: "Nanum Pen Script", cursive;
+	font-size: 22px;
+}
+
+.form__column {
+	margin-right: 10px;
+	padding-right: 10px;
+	padding-bottom: 40px;
+	min-width: 20%;
+}
+
+.form__column:first-child {
+	border-right: 1px solid black;
+}
+
+.form__reason {
+	font-size: 10px;
+}
+
+.form__approved {
+	position: absolute;
+	top: 100px;
+	right: 70px;
+	transform: rotate(12deg);
+	font-size: 2.5rem;
+	font-weight: 700;
+	border: 0.25rem solid #555;
+	display: inline-block;
+	padding: 0.25rem 1rem;
+	text-transform: uppercase;
+	border-radius: 1rem;
+	font-family: "Courier", serif;
+	mask-image: url("/texture-noise.png");
+	mix-blend-mode: multiply;
+}
+
+.form__approved--true {
+	color: rgba(17, 134, 41, 0.85);
+	border: 0.5rem solid rgba(17, 134, 41, 0.85);
+	text-shadow: 0 0 5px rgba(17, 134, 41, 0.35);
+	transform: rotate(-10deg);
+	border-radius: 0;
+}
+
+.form__approved--false {
+	color: #d23;
+	border: 0.5rem double #d23;
+	transform: rotate(3deg);
 }
 
 @media (min-width: 700px) {

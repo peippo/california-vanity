@@ -6,6 +6,7 @@ import usePlate from "../hooks/usePlate";
 import { randomMax } from "../utils/numbers";
 
 import Plate from "./Plate/Plate";
+import ApplicationForm from "./ApplicationForm";
 import Sun from "./Sun";
 import PalmTree from "./PalmTree";
 import Road from "./Road";
@@ -48,12 +49,6 @@ const Frontpage = ({ plateCount }) => {
 					isFetching={isFetching}
 				/>
 				<Logo />
-				<Dom position={[0, -2, 0]} center={true}>
-					<FetchButton
-						onClick={handleClick}
-						isFetching={isFetching}
-					/>
-				</Dom>
 				<Sun />
 				<Road />
 				<PalmTree
@@ -71,6 +66,16 @@ const Frontpage = ({ plateCount }) => {
 					rotation={[-Math.PI / 2, 0, 6]}
 					scale={[0.0045, 0.0045, 0.0045]}
 				/>
+				<ApplicationForm
+					application={application}
+					isFetching={isFetching}
+				/>
+				<Dom position={[0, -2, 0]} center={true}>
+					<FetchButton
+						onClick={handleClick}
+						isFetching={isFetching}
+					/>
+				</Dom>
 			</Suspense>
 		</Canvas>
 	);
