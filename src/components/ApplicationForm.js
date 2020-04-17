@@ -34,7 +34,7 @@ const ApplicationForm = ({ application, isFetching }) => {
 				<div className="form__header">
 					<LogoSVG className="form__logo" />
 					<h2 className="form__mainheading">
-						SPECIAL INTEREST LICENSE PLATE APPLICATION
+						VANITY LICENSE PLATE APPLICATION
 					</h2>
 				</div>
 

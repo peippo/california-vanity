@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from "react";
 import * as THREE from "three/src/Three";
-import { Canvas, Dom } from "react-three-fiber";
+import { Canvas } from "react-three-fiber";
 import { useHistory, useParams } from "react-router-dom";
 import usePlate from "../hooks/usePlate";
 import { randomMax } from "../utils/numbers";
@@ -49,8 +49,8 @@ const Frontpage = ({ plateCount }) => {
 					isFetching={isFetching}
 				/>
 				<Logo />
-				<Sun />
 				<Road />
+				<Sun />
 				<PalmTree
 					position={[1.5, -0.8, 0]}
 					rotation={[-Math.PI / 2, 0, 6.2]}
@@ -70,12 +70,7 @@ const Frontpage = ({ plateCount }) => {
 					application={application}
 					isFetching={isFetching}
 				/>
-				<Dom position={[0, -2, 0]} center={true}>
-					<FetchButton
-						onClick={handleClick}
-						isFetching={isFetching}
-					/>
-				</Dom>
+				<FetchButton onClick={handleClick} isFetching={isFetching} />
 			</Suspense>
 		</Canvas>
 	);
