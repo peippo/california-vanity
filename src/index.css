@@ -24,6 +24,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: linear-gradient(180deg, #f36c70 0%, #f6ab67 100%);
+	box-shadow: 0 0 100px 10px #582917 inset;
 }
 
 :root {
@@ -238,6 +239,10 @@ code {
 }
 
 @media (min-width: 700px) {
+	body {
+		box-shadow: 0 0 250px 10px #582917 inset;
+	}
+
 	.logo {
 		width: 450px;
 	}

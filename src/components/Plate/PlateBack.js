@@ -30,7 +30,7 @@ const PlateBack = ({ background, textureName }) => {
 		<meshPhongMaterial
 			attach="material"
 			color={background}
-			shininess={5}
+			shininess={10}
 			specular={"rgb(150, 150, 150)"}
 		/>
 	);
@@ -39,7 +39,7 @@ const PlateBack = ({ background, textureName }) => {
 		<meshPhongMaterial
 			attach="material"
 			color={"black"}
-			shininess={3}
+			shininess={8}
 			specular={"rgb(150, 150, 150)"}
 		/>
 	);

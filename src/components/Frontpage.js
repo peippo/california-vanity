@@ -43,6 +43,11 @@ const Frontpage = ({ plateCount }) => {
 					penumbra={1}
 					castShadow
 				/>
+				<spotLight
+					position={[1, 3, 5]}
+					intensity={0.35}
+					color={"orange"}
+				/>
 				<Plate
 					identifier={application?.plate}
 					color={application?.color}
