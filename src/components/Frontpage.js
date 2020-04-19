@@ -17,6 +17,7 @@ const Frontpage = ({ plateCount }) => {
 	const history = useHistory();
 	const { id } = useParams();
 	let plateId = id ? id : randomMax(plateCount);
+	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 	const { application, isFetching, error } = usePlate(plateId);
 
@@ -30,6 +31,7 @@ const Frontpage = ({ plateCount }) => {
 
 	return (
 		<Canvas
+			pixelRatio={Math.min(2, isMobile ? window.devicePixelRatio : 1)}
 			onCreated={({ gl }) => {
 				gl.shadowMap.enabled = true;
 				gl.shadowMap.type = THREE.PCFSoftShadowMap;
