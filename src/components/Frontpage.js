@@ -12,21 +12,30 @@ import PalmTree from "./PalmTree";
 import Road from "./Road";
 import FetchButton from "./FetchButton";
 import Logo from "./Logo";
+import Introduction from "./Introduction";
 
 const Frontpage = ({ plateCount }) => {
 	const history = useHistory();
 	const { id } = useParams();
-	let plateId = id ? id : randomMax(plateCount);
+	let plateId = id ? id : null;
 	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 	const { application, isFetching, error } = usePlate(plateId);
 
-	const handleClick = () => {
-		history.push(`/plate/${randomMax(plateCount)}`);
+	const handleFetchClick = () => {
+		const random = randomMax(plateCount);
+		history.push(`/plate/${random}`);
+	};
+
+	const handleHomeClick = () => {
+		plateId = null;
+		history.push(`/`);
 	};
 
 	useEffect(() => {
-		history.push(`/plate/${plateId}`);
+		if (plateId) {
+			history.push(`/plate/${plateId}`);
+		}
 	}, [plateId, history]);
 
 	return (
@@ -50,20 +59,24 @@ const Frontpage = ({ plateCount }) => {
 					intensity={0.35}
 					color={"orange"}
 				/>
-				<Plate
-					identifier={!error ? application?.plate : "404"}
-					color={
-						!error
-							? application?.color
-							: {
-									back: "rgb(147, 20, 29)",
-									text: "rgb(214, 191, 177)",
-									texture: "error",
-							  }
-					}
-					isFetching={isFetching}
-				/>
-				<Logo />
+				{plateId ? (
+					<Plate
+						identifier={!error ? application?.plate : "404"}
+						color={
+							!error
+								? application?.color
+								: {
+										back: "rgb(147, 20, 29)",
+										text: "rgb(214, 191, 177)",
+										texture: "error",
+								  }
+						}
+						isFetching={isFetching}
+					/>
+				) : (
+					<Introduction />
+				)}
+				<Logo onClick={handleHomeClick} />
 				<Road />
 				<Sun />
 				<PalmTree
@@ -85,9 +98,14 @@ const Frontpage = ({ plateCount }) => {
 					<ApplicationForm
 						application={application}
 						isFetching={isFetching}
+						plateId={plateId}
 					/>
 				)}
-				<FetchButton onClick={handleClick} isFetching={isFetching} />
+				<FetchButton
+					onClick={handleFetchClick}
+					isFetching={isFetching}
+					introduction={plateId ? false : true}
+				/>
 			</Suspense>
 		</Canvas>
 	);

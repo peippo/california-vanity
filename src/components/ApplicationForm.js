@@ -4,7 +4,7 @@ import { randomizePosNeg } from "../utils/numbers";
 
 import { ReactComponent as LogoSVG } from "./DMVlogo.svg";
 
-const ApplicationForm = ({ application, isFetching }) => {
+const ApplicationForm = ({ application, isFetching, plateId }) => {
 	const formRef = useRef();
 	const reviewReasonCodes = [
 		null,
@@ -26,7 +26,7 @@ const ApplicationForm = ({ application, isFetching }) => {
 		}
 	}, [isFetching]);
 
-	const formClass = isFetching ? "form__hidden" : "form__visible";
+	const formClass = isFetching || !plateId ? "form__hidden" : "form__visible";
 
 	return (
 		<Dom center={true} position={[0, -3.6, 0]}>

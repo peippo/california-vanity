@@ -3,7 +3,7 @@ import { baseUrl } from "../utils/config";
 import { delay } from "../utils/promises";
 
 const usePlate = (id) => {
-	const [isFetching, setIsFetching] = useState(true);
+	const [isFetching, setIsFetching] = useState(null);
 	const [application, setApplication] = useState(null);
 	const [error, setError] = useState(null);
 
@@ -26,28 +26,32 @@ const usePlate = (id) => {
 			},
 		];
 
-		setIsFetching(true);
-		setApplication(null);
-		setError(null);
+		if (id) {
+			setIsFetching(true);
+			setApplication(null);
+			setError(null);
 
-		fetch(`${baseUrl}/plates/single/${id}`)
-			.then((response) => response.json())
-			.then(delay(400))
-			.then((data) => {
-				if (data.error) {
-					setError(true);
-				} else {
-					setApplication({
-						...data,
-						color:
-							colors[Math.floor(Math.random() * colors.length)],
-					});
-				}
-			})
-			.catch((error) => {
-				setError(error);
-			})
-			.finally(() => setIsFetching(false));
+			fetch(`${baseUrl}/plates/single/${id}`)
+				.then((response) => response.json())
+				.then(delay(400))
+				.then((data) => {
+					if (data.error) {
+						setError(true);
+					} else {
+						setApplication({
+							...data,
+							color:
+								colors[
+									Math.floor(Math.random() * colors.length)
+								],
+						});
+					}
+				})
+				.catch((error) => {
+					setError(error);
+				})
+				.finally(() => setIsFetching(false));
+		}
 	}, [id]);
 
 	useEffect(() => {

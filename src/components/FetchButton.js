@@ -1,16 +1,16 @@
 import React from "react";
 import { Dom, useThree } from "react-three-fiber";
 
-const FetchButton = ({ onClick, isFetching }) => {
+const FetchButton = ({ onClick, isFetching, introduction }) => {
 	const scene = useThree();
 
-	let posY = -0.4;
+	let posY = introduction ? -2 : -0.4;
 	if (scene.size.width > 700) {
-		posY = -1;
+		posY = introduction ? -2 : -1;
 	}
 
 	if (scene.size.width > 900) {
-		posY = -1.5;
+		posY = introduction ? -2 : -1.5;
 	}
 
 	return (
