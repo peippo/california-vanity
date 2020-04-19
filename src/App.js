@@ -11,7 +11,9 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path={["/", "/plate", "/plate/:id"]}>
-					{!isFetching && <Frontpage plateCount={plateCount} />}
+					{!isFetching && (
+						<Frontpage plateCount={!error ? plateCount : 0} />
+					)}
 				</Route>
 			</Switch>
 		</Router>

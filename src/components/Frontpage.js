@@ -51,8 +51,16 @@ const Frontpage = ({ plateCount }) => {
 					color={"orange"}
 				/>
 				<Plate
-					identifier={application?.plate}
-					color={application?.color}
+					identifier={!error ? application?.plate : "404"}
+					color={
+						!error
+							? application?.color
+							: {
+									back: "rgb(147, 20, 29)",
+									text: "rgb(214, 191, 177)",
+									texture: "error",
+							  }
+					}
 					isFetching={isFetching}
 				/>
 				<Logo />
@@ -73,10 +81,12 @@ const Frontpage = ({ plateCount }) => {
 					rotation={[-Math.PI / 2, 0, 6]}
 					scale={[0.0045, 0.0045, 0.0045]}
 				/>
-				<ApplicationForm
-					application={application}
-					isFetching={isFetching}
-				/>
+				{!error && (
+					<ApplicationForm
+						application={application}
+						isFetching={isFetching}
+					/>
+				)}
 				<FetchButton onClick={handleClick} isFetching={isFetching} />
 			</Suspense>
 		</Canvas>

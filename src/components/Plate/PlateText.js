@@ -36,7 +36,7 @@ const PlateText = ({ identifier, color }) => {
 			<meshPhongMaterial
 				attach="material"
 				color={color}
-				shininess={30}
+				shininess={20}
 				specular={"rgb(150, 150, 150)"}
 			/>
 		</mesh>

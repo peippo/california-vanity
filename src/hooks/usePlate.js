@@ -33,13 +33,20 @@ const usePlate = (id) => {
 		fetch(`${baseUrl}/plates/single/${id}`)
 			.then((response) => response.json())
 			.then(delay(400))
-			.then((data) =>
-				setApplication({
-					...data,
-					color: colors[Math.floor(Math.random() * colors.length)],
-				})
-			)
-			.catch((error) => setError(error))
+			.then((data) => {
+				if (data.error) {
+					setError(true);
+				} else {
+					setApplication({
+						...data,
+						color:
+							colors[Math.floor(Math.random() * colors.length)],
+					});
+				}
+			})
+			.catch((error) => {
+				setError(error);
+			})
 			.finally(() => setIsFetching(false));
 	}, [id]);
 

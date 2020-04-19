@@ -5,11 +5,17 @@ const PlateBack = ({ background, textureName }) => {
 	const url1 = `../texture-plate-blue-yellow.png`;
 	const url2 = `../texture-plate-white-black.png`;
 	const url3 = `../texture-plate-black-yellow.png`;
+	const url4 = `../texture-plate-error.png`;
 
-	const [blueYellow, whiteBlack, blackYellow] = useMemo(() => {
+	const [blueYellow, whiteBlack, blackYellow, error] = useMemo(() => {
 		const loader = new THREE.TextureLoader();
-		return [loader.load(url1), loader.load(url2), loader.load(url3)];
-	}, [url1, url2, url3]);
+		return [
+			loader.load(url1),
+			loader.load(url2),
+			loader.load(url3),
+			loader.load(url4),
+		];
+	}, [url1, url2, url3, url4]);
 
 	let texture = null;
 	switch (textureName) {
@@ -21,6 +27,9 @@ const PlateBack = ({ background, textureName }) => {
 			break;
 		case "black-yellow":
 			texture = blackYellow;
+			break;
+		case "error":
+			texture = error;
 			break;
 		default:
 			break;
