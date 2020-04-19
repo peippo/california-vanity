@@ -34,6 +34,10 @@ code {
 		monospace;
 }
 
+#root > div > div {
+	transition: all, 0.33s;
+}
+
 .logo {
 	width: 70vw;
 	height: auto;
@@ -53,7 +57,7 @@ code {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 	color: #371516;
 	font-size: 16px;
-	padding: 5px 10px;
+	padding: 10px;
 	border-radius: 5px;
 	transition: all, 0.15s;
 	min-width: 250px;
@@ -379,7 +383,7 @@ code {
 
 	.fetch-button {
 		font-size: 20px;
-		padding: 10px 20px;
+		padding: 15px 20px;
 		min-width: 280px;
 	}
 
