@@ -1,5 +1,6 @@
-import React from "react";
-import { Dom, useThree } from "react-three-fiber";
+import React, { useRef } from "react";
+import { useThree } from "@react-three/fiber";
+import { Html } from "@react-three/drei";
 
 const FetchButton = ({ onClick, isFetching, introduction }) => {
 	const scene = useThree();
@@ -14,7 +15,7 @@ const FetchButton = ({ onClick, isFetching, introduction }) => {
 	}
 
 	return (
-		<Dom position={[0, posY, 0]} center={true}>
+		<Html position={[0, posY, 0]} center={true}>
 			<button
 				disabled={isFetching}
 				className="fetch-button"
@@ -24,7 +25,7 @@ const FetchButton = ({ onClick, isFetching, introduction }) => {
 					? "Processing applications..."
 					: "Fetch a random application"}
 			</button>
-		</Dom>
+		</Html>
 	);
 };
 

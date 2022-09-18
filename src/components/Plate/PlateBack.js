@@ -64,7 +64,7 @@ const PlateBack = ({ background, textureName }) => {
 			{/* Front */}
 			{texture && (
 				<mesh scale={[1, 1, 1]} castShadow position={[0, 0, -0.1]}>
-					<boxBufferGeometry attach="geometry" args={[6, 3, 0.05]} />
+					<boxGeometry attach="geometry" args={[6, 3, 0.05]} />
 					<meshBasicMaterial
 						attach="material"
 						map={texture}
@@ -73,7 +73,7 @@ const PlateBack = ({ background, textureName }) => {
 				</mesh>
 			)}
 			<mesh scale={[1, 1, 1]} castShadow position={[0, 0, -0.1]}>
-				<boxBufferGeometry attach="geometry" args={[6, 3, 0.05]} />
+				<boxGeometry attach="geometry" args={[6, 3, 0.05]} />
 				{material}
 			</mesh>
 
@@ -83,7 +83,7 @@ const PlateBack = ({ background, textureName }) => {
 				castShadow
 				position={[0, -1.5, sideZPosition]}
 			>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[6, 0.25, sideHeight]}
 				/>
@@ -94,7 +94,7 @@ const PlateBack = ({ background, textureName }) => {
 				castShadow
 				position={[0, 1.5, sideZPosition]}
 			>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[6, 0.25, sideHeight]}
 				/>
@@ -105,14 +105,14 @@ const PlateBack = ({ background, textureName }) => {
 				castShadow
 				position={[-3, 0, sideZPosition]}
 			>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[0.25, 3, sideHeight]}
 				/>
 				{material}
 			</mesh>
 			<mesh scale={[1, 1, 1]} castShadow position={[3, 0, sideZPosition]}>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[0.25, 3, sideHeight]}
 				/>
@@ -125,7 +125,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[-3, 1.5, sideZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, sideHeight, 20, 20, false]}
 				/>
@@ -136,7 +136,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[3, 1.5, sideZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, sideHeight, 20, 20, false]}
 				/>
@@ -147,7 +147,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[-3, -1.5, sideZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, sideHeight, 20, 20, false]}
 				/>
@@ -158,7 +158,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[3, -1.5, sideZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, sideHeight, 20, 20, false]}
 				/>
@@ -167,7 +167,7 @@ const PlateBack = ({ background, textureName }) => {
 
 			{/* Back */}
 			<mesh castShadow scale={[1, 1, 1]} position={[0, 0, backZPosition]}>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[6, 3, backHeight]}
 				/>
@@ -176,28 +176,28 @@ const PlateBack = ({ background, textureName }) => {
 
 			{/* Back / Sides */}
 			<mesh scale={[1, 1, 1]} position={[0, -1.5, backZPosition]}>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[6, 0.25, backHeight]}
 				/>
 				{backMaterial}
 			</mesh>
 			<mesh scale={[1, 1, 1]} position={[0, 1.5, backZPosition]}>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[6, 0.25, backHeight]}
 				/>
 				{backMaterial}
 			</mesh>
 			<mesh scale={[1, 1, 1]} position={[-3, 0, backZPosition]}>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[0.25, 3, backHeight]}
 				/>
 				{backMaterial}
 			</mesh>
 			<mesh scale={[1, 1, 1]} position={[3, 0, backZPosition]}>
-				<boxBufferGeometry
+				<boxGeometry
 					attach="geometry"
 					args={[0.25, 3, backHeight]}
 				/>
@@ -210,7 +210,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[-3, 1.5, backZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, backHeight, 20, 20, false]}
 				/>
@@ -221,7 +221,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[3, 1.5, backZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, backHeight, 20, 20, false]}
 				/>
@@ -232,7 +232,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[-3, -1.5, backZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, backHeight, 20, 20, false]}
 				/>
@@ -243,7 +243,7 @@ const PlateBack = ({ background, textureName }) => {
 				position={[3, -1.5, backZPosition]}
 				rotation={[Math.PI / 2, 0, 0]}
 			>
-				<cylinderBufferGeometry
+				<cylinderGeometry
 					attach="geometry"
 					args={[0.125, 0.125, backHeight, 20, 20, false]}
 				/>

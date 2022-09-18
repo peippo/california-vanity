@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Dom } from "react-three-fiber";
+import { Html } from "@react-three/drei";
 import { randomizePosNeg } from "../utils/numbers";
 
 import { ReactComponent as LogoSVG } from "./DMVlogo.svg";
@@ -29,7 +29,7 @@ const ApplicationForm = ({ application, isFetching, plateId }) => {
 	const formClass = isFetching || !plateId ? "form__hidden" : "form__visible";
 
 	return (
-		<Dom center={true} position={[0, -3.6, 0]}>
+		<Html center={true} position={[0, -3.6, 0]}>
 			<div ref={formRef} className={`form ${formClass}`}>
 				<div className="form__header">
 					<LogoSVG className="form__logo" />
@@ -45,8 +45,7 @@ const ApplicationForm = ({ application, isFetching, plateId }) => {
 				<div className="form__content">
 					<div className="form__column">
 						<h4 className="form__subheading">
-							Meaning:{" "}
-							<span className="form__required">(Required)</span>
+							Meaning: <span className="form__required">(Required)</span>
 						</h4>
 						<p className="form__meaning">
 							{application?.customerMeaning}
@@ -58,11 +57,7 @@ const ApplicationForm = ({ application, isFetching, plateId }) => {
 						{application?.reviewReasonCode > 0 && (
 							<p className="form__reason">
 								{application?.reviewReasonCode}.{" "}
-								{
-									reviewReasonCodes[
-										application?.reviewReasonCode
-									]
-								}
+								{reviewReasonCodes[application?.reviewReasonCode]}
 							</p>
 						)}
 					</div>
@@ -77,7 +72,7 @@ const ApplicationForm = ({ application, isFetching, plateId }) => {
 					</div>
 				)}
 			</div>
-		</Dom>
+		</Html>
 	);
 };
 

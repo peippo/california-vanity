@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import * as THREE from "three/src/Three";
-import { Canvas } from "react-three-fiber";
 import { useHistory, useParams } from "react-router-dom";
+import { Canvas } from "@react-three/fiber";
 import usePlate from "../hooks/usePlate";
 import { randomMax } from "../utils/numbers";
 
@@ -18,7 +18,6 @@ const Frontpage = ({ plateCount }) => {
 	const history = useHistory();
 	const { id } = useParams();
 	let plateId = id ? id : null;
-	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 	const { application, isFetching, error } = usePlate(plateId);
 
@@ -40,7 +39,6 @@ const Frontpage = ({ plateCount }) => {
 
 	return (
 		<Canvas
-			pixelRatio={Math.min(2, isMobile ? window.devicePixelRatio : 1)}
 			onCreated={({ gl }) => {
 				gl.shadowMap.enabled = true;
 				gl.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -54,11 +52,7 @@ const Frontpage = ({ plateCount }) => {
 					penumbra={1}
 					castShadow
 				/>
-				<spotLight
-					position={[1, 3, 5]}
-					intensity={0.35}
-					color={"orange"}
-				/>
+				<spotLight position={[1, 3, 5]} intensity={0.35} color={"orange"} />
 				{plateId ? (
 					<Plate
 						identifier={!error ? application?.plate : "404"}
