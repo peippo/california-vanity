@@ -18,7 +18,7 @@ const ApplicationForm = ({ application, isFetching, plateId }) => {
 	];
 
 	useEffect(() => {
-		if (!isFetching) {
+		if (!isFetching && formRef.current) {
 			formRef.current.style.setProperty(
 				"--form-rotation",
 				`${randomizePosNeg(2)}deg`
