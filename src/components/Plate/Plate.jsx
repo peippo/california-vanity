@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import * as THREE from "three/src/Three";
-import { useThree, useFrame } from "react-three-fiber";
-import { useSpring, animated } from "react-spring/three";
+import { useThree, useFrame } from "@react-three/fiber";
+import { useSpring, animated } from "@react-spring/three";
 import { randomDegree, randomizePosNeg } from "../../utils/numbers";
 
 import PlateText from "./PlateText";
@@ -24,11 +24,11 @@ const Plate = ({ identifier, color, isFetching }) => {
 		scale: isFetching ? [0.25, 0.25, 0.25] : [0.35, 0.35, 0.35],
 		rotation: isFetching
 			? [
-					THREE.Math.degToRad(randomizePosNeg(180)),
+					THREE.MathUtils.degToRad(randomizePosNeg(180)),
 					0,
-					THREE.Math.degToRad(randomDegree(15)),
+					THREE.MathUtils.degToRad(randomDegree(15)),
 			  ]
-			: [THREE.Math.degToRad(randomDegree(20)), 0, 0],
+			: [THREE.MathUtils.degToRad(randomDegree(20)), 0, 0],
 		config: { mass: 10, tension: 1000, friction: 300, precision: 0.00001 },
 	});
 

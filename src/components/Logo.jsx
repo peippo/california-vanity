@@ -1,5 +1,6 @@
 import React from "react";
-import { Dom, useThree } from "react-three-fiber";
+import { useThree } from "@react-three/fiber";
+import { Html } from "@react-three/drei";
 import { ReactComponent as LogoSVG } from "./Logo.svg";
 
 const Logo = ({ onClick }) => {
@@ -7,9 +8,9 @@ const Logo = ({ onClick }) => {
 	const pos = scene.size.width > 900 ? [-1.5, 2.8, 0] : [0, 2.8, 0];
 
 	return (
-		<Dom position={pos} center={true}>
+		<Html position={pos} center={true}>
 			<LogoSVG onClick={onClick} className="logo" />
-		</Dom>
+		</Html>
 	);
 };
 

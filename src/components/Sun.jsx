@@ -1,23 +1,19 @@
 import React, { useRef } from "react";
-import { useThree, useFrame } from "react-three-fiber";
+import { useFrame } from "@react-three/fiber";
 
 const Sun = () => {
 	const group = useRef();
-	const { mouse } = useThree();
 
 	useFrame(({ clock }) => {
 		group.current.children.forEach((child, index) => {
-			child.position.x = mouse.x * (index + 1) * 0.1;
-			child.position.y = mouse.y * (index + 1) * 0.025;
 			child.position.z =
 				Math.cos(clock.getElapsedTime()) * 0.25 + (index + 1) * 0.15;
-			child.scale.y =
-				Math.sin(clock.getElapsedTime()) * 0.5 + (index + 1);
+			child.scale.y = Math.sin(clock.getElapsedTime()) * 0.5 + (index + 1);
 		});
 	});
 
 	const geometry = (
-		<cylinderBufferGeometry
+		<cylinderGeometry
 			attach="geometry"
 			args={[1, 1, 0.1, 40, 20, false, Math.PI / 2, Math.PI / 1]}
 		/>
