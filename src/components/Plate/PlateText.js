@@ -1,9 +1,16 @@
 import * as THREE from "three";
-import React, { useMemo } from "react";
-import { useLoader, useUpdate } from "react-three-fiber";
+import React, { useLayoutEffect, useMemo, useRef } from "react";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+import { extend } from "@react-three/fiber";
+import plateFont from "./plate-font.json";
+
+extend({ TextGeometry });
 
 const PlateText = ({ identifier, color }) => {
-	const font = useLoader(THREE.FontLoader, "../plate-font.json");
+	const font = new FontLoader().parse(plateFont);
+	const ref = useRef();
+
 	const config = useMemo(
 		() => ({
 			font,
@@ -19,16 +26,14 @@ const PlateText = ({ identifier, color }) => {
 		[font]
 	);
 
-	const ref = useUpdate(
-		(self) => {
-			const size = new THREE.Vector3();
-			self.geometry.computeBoundingBox();
-			self.geometry.boundingBox.getSize(size);
-			self.position.x = -(size.x / 2) * 0.1;
-			self.position.y = -(size.y / 2) * 0.1;
-		},
-		[identifier]
-	);
+	useLayoutEffect(() => {
+		if (!ref.current) return;
+		const size = new THREE.Vector3();
+		ref.current.geometry.computeBoundingBox();
+		ref.current.geometry.boundingBox.getSize(size);
+		ref.current.position.x = -(size.x / 2) * 0.1;
+		ref.current.position.y = -(size.y / 2) * 0.1;
+	}, [identifier]);
 
 	return (
 		<mesh ref={ref} scale={[0.1, 0.1, 0.1]} position={[0, 0, 0]}>
