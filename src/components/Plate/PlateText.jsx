@@ -7,7 +7,7 @@ import plateFont from "./plate-font.json";
 
 extend({ TextGeometry });
 
-const PlateText = ({ identifier, color }) => {
+const PlateText = ({ identifier = "", color }) => {
 	const font = new FontLoader().parse(plateFont);
 	const ref = useRef();
 
