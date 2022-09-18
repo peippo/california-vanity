@@ -38,12 +38,7 @@ const Frontpage = ({ plateCount }) => {
 	}, [plateId, history]);
 
 	return (
-		<Canvas
-			onCreated={({ gl }) => {
-				gl.shadowMap.enabled = true;
-				gl.shadowMap.type = THREE.PCFSoftShadowMap;
-			}}
-		>
+		<Canvas shadows>
 			<Suspense fallback={null}>
 				<ambientLight intensity={0.5} />
 				<spotLight
