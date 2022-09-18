@@ -13,6 +13,4 @@ A React/Three.js browser for a collection of personalized license plate applicat
 -   Dealerplate font by [Typodermic Fonts](https://typodermicfonts.com/dealerplate/)
 -   Palm tree object by [Guad on Sketchfab](https://sketchfab.com/3d-models/palm-tree-c520a0429a024f18a69342ce79acd5d5)
 
-### <a href="https://california-vanity.herokuapp.com/">Open the project</a>
-
-Note: the app is running on Heroku and is probably sleeping, it will take a short while to wake up.
+### <a href="https://california-vanity.up.railway.app/">Open the project</a>
